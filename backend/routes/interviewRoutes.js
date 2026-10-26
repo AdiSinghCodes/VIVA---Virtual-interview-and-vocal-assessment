@@ -1,0 +1,1 @@
+const router=require('express').Router(); const c=require('../controllers/interviewController'); const {requireAuth}=require('../middleware/authMiddleware'); router.post('/',requireAuth,c.createInterview); module.exports=router;

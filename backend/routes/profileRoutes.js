@@ -1,0 +1,1 @@
+const router=require('express').Router(); const c=require('../controllers/profileController'); const {requireAuth}=require('../middleware/authMiddleware'); router.get('/',requireAuth,c.getProfile); router.put('/',requireAuth,c.updateProfile); module.exports=router;

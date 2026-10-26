@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import 'tailwindcss';
+
+:root {
+  --background: #FAF9F5;
+  --foreground: #172033;
+  --card: #ffffff;
+  --card-border: rgba(23, 32, 51, 0.09);
+  --card-foreground: #172033;
+  --primary: #3358E8;
+  --primary-light: #7B5CFA;
+  --primary-foreground: #ffffff;
+  --secondary: rgba(51, 88, 232, 0.10);
+  --secondary-foreground: #3358E8;
+  --muted: rgba(23, 32, 51, 0.04);
+  --muted-foreground: #8A93A5;
+  --accent: #7B5CFA;
+  --accent-foreground: #ffffff;
+  --success: #10b981;
+  --warning: #C77B1E;
+  --danger: #C24040;
+  --border: rgba(23, 32, 51, 0.09);
+  --ring: rgba(51, 88, 232, 0.35);
+  --radius: 12px;
+  --sidebar-width: 320px;
+  --topnav-height: 64px;
+
+  --grad-primary: linear-gradient(135deg, #3358E8, #7B5CFA);
+  --grad-purple-blue: linear-gradient(135deg, #3358E8, #7B5CFA);
+  --grad-blue-cyan: linear-gradient(135deg, #3358E8, #06b6d4);
+  --grad-subtle: linear-gradient(135deg, rgba(51,88,232,0.10), rgba(123,92,250,0.08));
+
+  font-family: 'Inter', system-ui, sans-serif;
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', system-ui, sans-serif;
+  margin: 0;
+}
+
+/* scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(51, 88, 232, 0.3) transparent;
+}
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(51, 88, 232, 0.3); border-radius: 2px; }
+
+/* ── Responsive sidebar ─────────────────────────────────────────────────── */
+
+/* Mobile-first: sidebar is a hidden drawer, main takes full width */
+.app-sidebar {
+  transform: translateX(-100%);
+}
+.app-main {
+  margin-left: 0 !important;
+}
+
+/* Desktop: sidebar always visible, push main content */
+@media (min-width: 768px) {
+  .app-sidebar {
+    transform: translateX(0) !important;
+  }
+  .sidebar-backdrop {
+    display: none !important;
+  }
+  .app-main {
+    margin-left: var(--sidebar-width) !important;
+  }
+  /* Hide hamburger on desktop */
+  .topnav-hamburger {
+    display: none !important;
+  }
+}
+
+/* Hide sign-out text on very small screens */
+@media (max-width: 420px) {
+  .topnav-signout {
+    display: none !important;
+  }
+}
+
+/* ── Mobile layout helpers ──────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  /* Tighter page padding on mobile */
+  main > div {
+    padding: 16px !important;
+  }
+
+  /* Collapse any explicit two-column / three-column inline grids */
+  .glass,
+  .glass-strong {
+    min-width: 0;
+  }
+}
+
+/* glass card */
+.glass {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+}
+
+.glass-strong {
+  background: #ffffff;
+  border: 1px solid rgba(23, 32, 51, 0.12);
+}
+
+/* gradient text */
+.grad-text {
+  background: var(--grad-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* orb glow */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.orb-purple {
+  background: rgba(51, 88, 232, 0.20);
+}
+
+.orb-cyan {
+  background: rgba(6, 182, 212, 0.15);
+}
+
+.orb-blue {
+  background: rgba(123, 92, 250, 0.15);
+}
+
+/* transitions */
+.transition-all-200 {
+  transition: all 0.2s ease;
+}
+
+/* primary button */
+.btn-primary {
+  background: var(--grad-primary);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  transition: opacity 0.2s, transform 0.15s;
+}
+.btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+.btn-primary:active { transform: translateY(0); }
+
+/* ghost button */
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--foreground);
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.2s;
+}
+.btn-ghost:hover { background: var(--muted); border-color: rgba(51,88,232,0.4); }

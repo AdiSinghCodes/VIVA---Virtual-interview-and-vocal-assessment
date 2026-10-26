@@ -1,0 +1,10 @@
+{
+  "description": "Streamline the interview process with AI-driven assessments for recruiters and candidates, offering real-time insights and performance analytics.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

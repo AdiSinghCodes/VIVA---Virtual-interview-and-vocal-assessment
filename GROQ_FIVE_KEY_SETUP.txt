@@ -1,0 +1,11 @@
+VIVA GROQ FIVE-KEY CONFIGURATION
+
+1. Copy backend/.env.example to backend/.env if you do not already have a local .env.
+2. Set GROQ_EVALUATION_API_KEYS to two valid Groq keys.
+3. Set GROQ_QUESTION_API_KEYS to two valid Groq keys.
+4. Set GROQ_ATS_API_KEY to the fifth key, used only for ATS resume scoring.
+5. Keep GROQ_API_KEY configured for the existing transcription endpoint (it may equal question key 1).
+6. Confirm INTERVIEW_LLM_MODELS contains models accessible to your Groq account.
+7. Restart Node and Python services. Test normal evaluation, pass/skip, verbal questions, coding/SQL, and ATS scoring separately.
+
+The interview resume summary uses the question pool; ATS scoring uses GROQ_ATS_API_KEY only. If ATS model requests fail, deterministic semantic/structure scoring is returned. Never commit or share real .env keys.

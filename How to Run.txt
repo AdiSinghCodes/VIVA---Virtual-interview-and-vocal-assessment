@@ -1,0 +1,5 @@
+cd c:\Users\Aditya\Downloads\AI_project\backend
+npm start
+
+cd c:\Users\Aditya\Downloads\AI_project
+npm run dev

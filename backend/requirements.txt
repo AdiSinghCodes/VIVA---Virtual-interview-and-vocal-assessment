@@ -1,0 +1,11 @@
+flask
+flask-socketio
+opencv-python
+numpy
+ultralytics
+mediapipe
+python-dotenv
+groq
+sentence-transformers
+beautifulsoup4
+httpx
